@@ -1,51 +1,64 @@
-
 # Software Requirements Specification (SRS)
+
+## Project Name: **Cafe Management System**
+
+---
 
 ## Preface
 
-This document provides the Software Requirements Specification (SRS) for the WorkSync. It defines the system’s functionalities, performance criteria, security requirements, and overall system architecture necessary for development.
+This document provides the Software Requirements Specification (SRS) for the **Cafe Management System**. It defines the system’s functionalities, performance criteria, security requirements, database structure, and overall architecture necessary for development.
 
 ---
 
 ## Version History
 
-* **Version 1.0** – Initial Draft.
-* **Version 1.1** – Added non-functional requirements and system models.
-* **Version 1.2** – Refined system evolution and glossary.
+* **Version 1.0** – Initial Draft
+* **Version 1.1** – Added non-functional requirements
+* **Version 1.2** – Refined database model and glossary
 
 ---
 
-## 1. Introduction
+# 1. Introduction
 
-### Purpose
+## Purpose
 
-The WorkSync is a web-based application designed to enhance organizational efficiency by streamlining task assignment, real-time monitoring, collaboration, and reporting. The system enables teams to effectively manage their workflows, ensuring timely project completion and optimized resource allocation.
+The **Cafe Management System** is a web-based application designed to improve cafe operations by managing orders, customers, inventory, staff activities, and reporting. The system enables efficient service delivery, reduces manual workload, and enhances customer satisfaction.
 
-### Document Conventions
+---
+
+## Document Conventions
 
 This document follows the IEEE SRS standard, using:
 
-* **Must** – Indicates mandatory requirements.
-* **Should** – Indicates recommended features.
-* **May** – Indicates optional enhancements.
+* **Must** – Indicates mandatory requirements
+* **Should** – Indicates recommended features
+* **May** – Indicates optional enhancements
 
-### Intended Audience and Reading Suggestions
+---
 
-* **Project Managers & Developers** – For system implementation guidance.
-* **Stakeholders & Business Analysts** – To understand system capabilities.
-* **Testers & QA Teams** – To validate compliance with requirements.
+## Intended Audience and Reading Suggestions
 
-### Scope
+* **Project Managers & Developers** – System implementation guidance
+* **Stakeholders & Business Analysts** – Understanding system capabilities
+* **Testers & QA Teams** – Requirement validation
+
+---
+
+## Scope
 
 The system provides:
 
-* Task assignment and tracking
-* Real-time monitoring and reporting
-* Integrated collaboration tools (notes, coding workspace, file sharing)
-* Customizable dashboards
-* Role-based access and security features
+* Customer management
+* Order processing
+* Menu management
+* Inventory tracking
+* Billing and payment handling
+* Reporting and analytics
+* Role-based access control
 
-### References
+---
+
+## References
 
 * IEEE Standard 830-1998 (Software Requirements Specification)
 * Internal Business Requirement Specification (BRS)
@@ -53,163 +66,245 @@ The system provides:
 
 ---
 
-## 2. Overall Description
+# 2. Overall Description
 
-### Product Perspective
+## Product Perspective
 
-The WorkSync is a standalone web application, integrating with external services such as Slack, Microsoft Teams, and other productivity tools.
-
-### Product Functions
-
-* **Task Management:** Assign, track, and complete tasks.
-* **Project Management:** Monitor project progress and milestones.
-* **Reporting & Analytics:** Generate real-time reports and performance metrics.
-* **Collaboration:** Share files, take notes, and work within a digital workspace.
-* **Notifications:** Alerts for deadlines, updates, and system messages.
-
-### User Classes and Characteristics
-
-* **Admin:** Manages users, permissions, and system settings.
-* **Manager:** Assigns tasks, tracks progress, and reviews reports.
-* **Employee:** Works on assigned tasks and updates status.
-
-### Operating Environment
-
-* Web-based application (accessible via Chrome, Firefox, Edge).
-* Cloud-hosted infrastructure.
-* **Database:** MongoDB.
-
-### Design and Implementation Constraints
-
-* Compliance with GDPR and security regulations.
-* Scalability to support different organizational sizes.
-
-### Assumptions and Dependencies
-
-* Internet access is required for real-time updates.
-* Future mobile application integration may be considered.
+The **Cafe Management System** is a standalone web application with optional integration for payment gateways and delivery platforms.
 
 ---
 
-## 3. System Requirements Specification
+## Product Functions
 
-### Functional Requirements
+### Order Management
 
-* **User Authentication**
-* The system must allow users to register, log in, and reset passwords.
-* The system must enforce role-based authentication (Admin, Manager, Employee).
+* Create and process customer orders
+* Track order status
 
+### Menu Management
 
-* **Task Management**
-* Managers must be able to create, assign, and track tasks.
-* Employees must be able to update task statuses.
-* The system must send notifications when tasks are assigned or updated.
+* Add, update, remove menu items
 
+### Inventory Management
 
-* **Project Management**
-* The system must allow users to create and manage projects.
-* Each project must be linked to multiple tasks.
+* Track ingredient availability
 
+### Billing & Payment
 
-* **Reporting & Analytics**
-* Managers must be able to generate reports on task completion rates and employee performance.
-* Reports should be exportable in PDF and CSV formats.
+* Generate invoices
+* Support multiple payment methods
 
+### Reporting
 
-* **Collaboration Tools**
-* Users should be able to take notes and share files within the system.
-* The system may integrate a basic text editor and coding workspace.
-
-
-* **Notifications**
-* The system must send alerts for task assignments, deadline reminders, and updates.
-
-
-
-### Non-Functional Requirements
-
-* **Performance Requirements**
-* The system must support 500+ concurrent users.
-* Task updates must reflect in real time.
-
-
-* **Security Requirements**
-* The system must implement role-based access control.
-* All sensitive user data must be encrypted.
-
-
-* **Usability Requirements**
-* The system should have an intuitive UI/UX.
-* The system must support accessibility standards.
-
-
-* **Reliability and Availability**
-* The system must ensure 99.9% uptime.
-* A backup mechanism must be in place for data recovery.
-
-
-* **Maintainability and Support**
-* The system must support modular updates.
-* The system must provide proper logging and debugging mechanisms.
-
-
-* **Portability**
-* The system should be accessible from Windows, Mac, and Linux.
-* The system must support cloud deployment.
-
-
+* Daily sales reports
+* Inventory reports
 
 ---
 
-## 4. System Models
+## User Classes and Characteristics
 
+### Admin
 
-> * **CONTEXT DIAGRAM**
-<img src="images/2. Context Model.png">
+* Manages users, settings, reports
 
-> * **ACTIVITY DIAGRAM**
+### Staff
 
-<img src="images/3. Activity Diagram.png" alt="Activity Diagram">
+* Handles orders and customer service
 
-> * **USE CASE DIAGRAMS**
-<img src="images/4. Use Case Diagrams_page-0001.jpg" alt="Use Case Diagrams Page 1">
-<img src="images/4. Use Case Diagrams_page-0002.jpg" alt="Use Case Diagrams Page 2">
-<img src="images/4. Use Case Diagrams_page-0003.jpg" alt="Use Case Diagrams Page 3">
-<img src="images/4. Use Case Diagrams_page-0004.jpg" alt="Use Case Diagrams Page 4"> 
+### Customer
 
-> * **SEQUENCE DIAGRAM**
-
-<img src="images/5. Sequence Diagram_page-0001.jpg">
-
-> * **ENTITY-RELATIONSHIP DIAGRAM**
-<img src="images/6. ER Diagram.png" alt="ER Diagram">
-
-> * **STATE DIAGRAM**
-<img src="images/7. State Diagram.png" alt="State Diagram">
+* Places orders and views history
 
 ---
 
-## 5. System Evolution
+## Operating Environment
 
-### Assumptions
-
-* AI should be integrated to boost production.
-* Future support for mobile platforms.
-* Scalability for enterprise usage.
-
-### Expected Changes
-
-* Integration with third-party services.
-* AI-powered task recommendations.
+* Web-based application
+* Cloud-hosted deployment
+* Database: **MongoDB**
 
 ---
 
-## 6. Appendices
+## Design and Implementation Constraints
 
-### Hardware Requirements
+* Secure authentication required
+* Responsive interface
+* Compliance with data protection standards
 
-* Cloud-based infrastructure with scalable servers.
+---
 
-### Database Requirements
+## Assumptions and Dependencies
 
-* Must include logical data relationships.( please follow this structure and give src project name cafe managment system and for diagram just give er diagram not other diagrams and give image of diagram
+* Internet connection required
+* Payment service availability
+
+---
+
+# 3. System Requirements Specification
+
+## Functional Requirements
+
+### User Authentication
+
+* Users must register and log in
+* Password reset functionality
+* Role-based access
+
+### Order Management
+
+* Staff must create and update orders
+* Customers can place and track orders
+
+### Menu Management
+
+* Admin can manage menu items
+
+### Inventory Management
+
+* System tracks ingredient usage
+* Alerts for low stock
+
+### Payment System
+
+* Generate bills
+* Store payment records
+
+### Reporting
+
+* Export reports in PDF and CSV
+
+---
+
+## Non-Functional Requirements
+
+### Performance Requirements
+
+* Support 500+ concurrent users
+* Real-time order updates
+
+### Security Requirements
+
+* Role-based authorization
+* Encrypted user information
+
+### Usability Requirements
+
+* User-friendly interface
+* Accessibility support
+
+### Reliability and Availability
+
+* 99.9% uptime
+* Backup and recovery support
+
+### Maintainability
+
+* Modular architecture
+* Logging and debugging support
+
+### Portability
+
+* Support Windows, Linux, and Mac
+
+---
+
+# 4. System Models
+
+## ENTITY–RELATIONSHIP (ER) DIAGRAM
+
+![Image](https://images.openai.com/static-rsc-4/OrUvQm8vIa255fNFQLIGWuB_Bp3L7PXyJ59ZCrjkcY9MwiATXAY-ugTByoS2SRrRXkZQCC_zII4CC50fk6c7ZkNw1hyXsSc5j50VKIwda7hSauHnWt5tV748ZP3A8VNI2TS1KzMNALIi8AJothAzqQ-L4PyK3gpCJD_hOQX3zWeoxKhjQr6FVGwj3fF4PDtI?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/UfSResCWqY-RnaA9pzuPhWJk2cyxZmh0zUYOjsWQ0vquPjCuFvoOORcM8AyeqgtaJgfd-3DBWLPbmo86TK8EObVJ8qzBtMnRTTFdm_4NdMGGcrrx-PiLvlPnKNQ0JKv7Ty9oTjiuVcGRR9Hi-uKn-1mPSRs_4ZZE9xnhHmtNBp9TxDugQpm6E4lRiWpjX-4j?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/q3ULoprLcJWtQyvOh24IcpY3qDFuV4TomqEtDV2gKcr59HXLJda8mGPN7wQtqfhJH6mOoUfbey0HGqQldl3oUwKL5NMQjOZpV4mhyvXuSShvNAQ3Dh9ZaY7ghb6tY9W57-lwqojh1Q_ODMztpDLIIsUN2_7PIP2GCAporVxhisytMAPHRZXnD4qpy19hnezH?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/pw1qWuCOC6Wc9J7iJd1jUk4cbHBakiHgS8NQT719vYFQily0_cban2pnZAseHuhGfeF3arxHK8vNx3omN9Z_DhRIB66wpXBsAlIVcOIEdwkIk-E8DJvPzOBb_nBkwXj0je8BieZeydwIYV7n8k5jWkiVcvqQZUJO223LUSqXbYFFeKAPB7tb8VD-O9YmyZ_y?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/XgHOAfsODNl1JC6JpC0pyJveOXXsfBG36rIcxEVyltGSYf-joeeXacMbQJtyEVKgFTqyLfcmA9q5ZYTn0g1pHlzVC12LIQpM8P7IG-UTyt9XotIb77hdSuE_UmPYfyxJ1mVtRfy9NYrjThAjDM7WXDKYqTdUmuEQmGl1uQHwuE7SbwMS3_HHKo1hubXUiVvJ?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/jpEtr-5GC0YbmkweYqKUomWQq-KZnJv5iSQuXRbcmRnrJiL8xAZjieZ2Nmn6EqlmfBRHNlumUBpZvbUSUM9YjoXO0oyJoixBtOqjTpsOUKsLKZ23bjeXV3qzyF7tI80GCqMcWKbdN8n9oYv3kptQN9fwaXp5JsL5E8kC65BolsHbCqbq8429MiQ2NyCNuyEX?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/3u85G0lVJ2DPM-G18ASyEmBHHWEx64GA7knkYWtUmOm83AirwH0PMKpQccSPaOflyHxlfL_RTBCzFmStPE-58e72p37dN4nnlRjnJj1zVJeK56T434EmtyigJJrBju8D9uCqozWzf0svJXbUWGOn05Z9bA-I5XA5ZY32UE9dOsoqrEcSk5fNmwpZll6aOrI8?purpose=fullsize)
+
+### Main Entities
+
+**Customer**
+
+* Customer_ID (PK)
+* Name
+* Phone
+* Email
+
+**Order**
+
+* Order_ID (PK)
+* Customer_ID (FK)
+* Staff_ID (FK)
+* Order_Date
+* Status
+* Total_Amount
+
+**Menu**
+
+* Menu_ID (PK)
+* Item_Name
+* Price
+* Category
+
+**Inventory**
+
+* Inventory_ID (PK)
+* Item_Name
+* Quantity
+
+**Payment**
+
+* Payment_ID (PK)
+* Order_ID (FK)
+* Payment_Method
+* Amount
+
+**Staff**
+
+* Staff_ID (PK)
+* Name
+* Role
+
+### Relationships
+
+* Customer → Places → Order (**1:M**)
+* Staff → Manages → Order (**1:M**)
+* Order → Contains → Menu (**M:N**)
+* Menu → Uses → Inventory (**M:N**)
+* Order → Generates → Payment (**1:1**)
+
+---
+
+# 5. System Evolution
+
+## Assumptions
+
+* AI-based recommendations may be integrated
+* Mobile application support in future
+
+---
+
+## Expected Changes
+
+* Online delivery integration
+* Customer loyalty program
+* Advanced analytics dashboard
+
+---
+
+# 6. Appendices
+
+## Hardware Requirements
+
+* Cloud-based scalable infrastructure
+
+## Database Requirements
+
+* Must include logical data relationships
+* Support indexing for performance
+* Ensure data integrity and consistency
