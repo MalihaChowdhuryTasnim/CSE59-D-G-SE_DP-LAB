@@ -11,7 +11,7 @@ This document provides the Software Requirements Specification (SRS) for the **C
 ---
 
 # 1. Introduction
-![image alt](Task 1/Your Work/images/hjh.jpeg)
+![image alt](https://github.com/MalihaChowdhuryTasnim/CSE59-D-G-SE_DP-LAB/blob/4de538b52c8ee05ba639114c1735be0cd8b93625/Task%201/Your%20Work/images/hjh.jpeg)
 
 ## Purpose
 
